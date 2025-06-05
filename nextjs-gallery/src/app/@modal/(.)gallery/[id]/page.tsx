@@ -1,5 +1,6 @@
 import type { Photo } from "@/app/gallery/page";
 import Image from "next/image";
+import Link from "next/link";
 
 type Props = {
 	params: Promise<{ id: string }>;
@@ -15,18 +16,12 @@ const page = async ({ params }: Props) => {
 			<div className="bg-white text-black p-3 w-1/3 items-center text-center">
 				<Image src={data.url} alt="Image" width={600} height={600} />
 				<div className="flex gap-4 justify-around p-3">
-					<a
+					<Link
 						className="border-1 p-2  inline-block rounded-md shadow-md"
 						href="/gallery"
 					>
 						Close
-					</a>
-					<a
-						className="border-1 p-2  inline-block rounded-md shadow-md"
-						href={`/gallery/${data.id}`}
-					>
-						View Image
-					</a>
+					</Link>
 				</div>
 			</div>
 		</div>
